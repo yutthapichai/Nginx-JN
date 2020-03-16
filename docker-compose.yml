@@ -2,7 +2,7 @@ version: '3'
 services:
   nginx-proxy:
     image: jwilder/nginx-proxy
-    restart: always
+    # restart: always
     ports:
       - "80:80"
       - "443:443"
@@ -26,6 +26,4 @@ services:
 volumes:
   vhost:
 networks:
-  default:
-    external:
-      name: nginx-proxy
+  javanoong:

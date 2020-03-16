@@ -2,7 +2,7 @@ version: '3.7'
 services:
   nginx:
     image: nginx
-    restart: always
+    # restart: always
     environment:
       - VIRTUAL_HOST=javanoong.com
       - LETSENCRYPT_HOST=javanoong.com
@@ -10,6 +10,4 @@ services:
     volumes:                     
       - .:/etc/nginx/conf.d
 networks:
-  default:
-    external:
-      name: nginx-proxy
+  javanoong:
