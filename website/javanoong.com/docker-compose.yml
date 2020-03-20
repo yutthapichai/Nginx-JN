@@ -1,15 +1,20 @@
 version: '3.7'
 services:
+  # nginx-proxy:
+  #   image: jwilder/nginx-proxy
+  #   ports:
+  #     - "81:80"
+  #   volumes:
+  #     - /var/run/docker.sock:/tmp/docker.sock:ro
+
   nginx:
-    image: jwilder/nginx-proxy
-    restart: always
+    image: nginx
     environment:
       - VIRTUAL_HOST=javanoong.com
-      - LETSENCRYPT_HOST=javanoong.com
-      - LETSENCRYPT_EMAIL=admin@javanoong.com
     volumes:                     
       - .:/etc/nginx/conf.d
-      - /var/run/docker.sock:/tmp/docker.sock:ro
+    restart: always
+    
 networks:
   default:
     external:
