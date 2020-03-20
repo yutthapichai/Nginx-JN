@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   nginx:
-    image: nginx
+    image: jwilder/nginx-proxy
     restart: always
     environment:
       - VIRTUAL_HOST=javanoong.com
@@ -9,6 +9,7 @@ services:
       - LETSENCRYPT_EMAIL=admin@javanoong.com
     volumes:                     
       - .:/etc/nginx/conf.d
+      - /var/run/docker.sock:/tmp/docker.sock:ro
 networks:
   default:
     external:
